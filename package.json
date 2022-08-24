@@ -1,0 +1,36 @@
+{
+  "name": "find-td-devices",
+  "version": "1.0.0",
+  "description": "Helps to find the IP address of the TD device",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "files": [
+    "dist/"
+  ],
+  "scripts": {
+    "start": "npm run build && node dist/index.js",
+    "build": "npm run clean && tsc",
+    "clean": "rm -rf ./dist",
+    "exe": "rm -f \"Tongdy Device Finder.exe\" && npm run build && pkg -t node12 dist/index.js -o \"Tongdy Device Finder\""
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/tongdysoft/find-td-devices.git"
+  },
+  "author": "Tongdy Sensing Technology Corporation",
+  "bugs": {
+    "url": "https://github.com/tongdysoft/find-td-devices/issues"
+  },
+  "homepage": "https://github.com/tongdysoft/find-td-devices#readme",
+  "devDependencies": {
+    "@types/node": "^16.4.13",
+    "pkg": "^5.8.0",
+    "typescript": "^4.7.4"
+  },
+  "pkg": {
+    "bin": "./bin",
+    "scripts": {
+      "pkg": "pkg . --out-path=dist/"
+    }
+  }
+}
