@@ -1,9 +1,11 @@
 import * as readline from "readline";
+import Scan from "./scan";
 const read = readline.createInterface({
   input: process.stdin,
   output: process.stdout,
 });
 let network: string = "192.168.1.0/24";
+const scan = new Scan();
 read.question(
   "Please enter a network segment (192.168.1.0/24) > ",
   (networki) => {
@@ -15,5 +17,6 @@ read.question(
     ) {
         network = networki;
     }
+    scan.onScan(network);
   }
 );
